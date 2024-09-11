@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Navbar</title>
+    <link rel="stylesheet" href="public/styles/index.css">
+</head> 
+<body>
+    <header>
+        <a href="#" class="logo">Koreyoshi</a>
+        <ul>
+            <li><a href="#">主页</a></li>
+            <li class="dropdown">
+                <a href="#">我的记录</a>
+                <div class="dropdown-content">
+                    <a href="#">科研论文</a>
+                    <a href="#">知行合一</a>
+                    <a href="#">项目分享</a>
+                    <a href="#">成长小记</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">往期整理</a>
+                <div class="dropdown-content">
+                    <a href="#">历史归档</a>
+                    <a href="#">文章分类</a>
+                    <a href="#">文章标签</a>
+                </div>
+            </li>
+            <li><a href="#">友情链接</a></li>
+            <li><a href="#">关于我</a></li>
+        </ul> 
+    </header>
+
+    <div class="container">
+        <h1 class="title">Koreyoshi</h1>
+        <p class="subtitle">欢迎来到我的博客 !</p>
+        <div class="button-container">
+            <button class="button">科研论文</button>
+            <button class="button">知行合一</button>
+            <button class="button">项目分享</button>
+            <button class="button">成长小记</button>
+        </div>
+    </div>
+
+    <section class="banner"></section>
+
+    <!-- 下滑箭头 -->
+    <div class="scroll-down">
+        <button id="scrollButton" aria-label="Scroll Down">
+            &#9660; <!-- Unicode 代码用于下滑箭头 -->
+        </button>
+    </div>
+
+    <script type="text/javascript">
+        // 导航条固定
+         window.addEventListener("scroll",function(){
+            var header = document.querySelector("header");
+            header.classList.toggle("sticky", window.scrollY > 0);
+        })
+
+
+        // 点击箭头后滚动到底部
+       document.addEventListener("DOMContentLoaded", function() {
+        var scrollButton = document.querySelector(".scroll-down");
+
+        window.addEventListener("scroll", function() {
+            if (window.scrollY > window.innerHeight / 2) {
+                scrollButton.classList.add('hidden'); // 隐藏箭头
+            } else {
+                scrollButton.classList.remove('hidden'); // 显示箭头
+            }
+        });
+
+        scrollButton.addEventListener("click", function() {
+            window.scrollBy({
+                top: window.innerHeight, // 下滑一个视口的高度
+                behavior: 'smooth' // 平滑滚动
+            });
+
+            // 点击后立即隐藏箭头
+            scrollButton.classList.add('hidden');
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body
+{
+    margin: 0;
+    padding: 0;
+    background-color: white; /* 设置页面底色为白色 */
+    font-family: Arial, sans-serif;
+    min-height: 200vh;
+}
+header
+{
+    height: 60px; /* 设置固定高度 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.6s;
+    padding: 0 100px; /* 去除顶部和底部的内边距 */
+    z-index: 100000;
+    backdrop-filter: blur(10px); /* 添加模糊背景效果 */
+}
+header.sticky
+{
+    padding: 5px 100px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* 设置阴影增加立体感 */
+}
+/* logo */
+header .logo
+{
+    position: relative;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.6s;
+}
+header .logo:hover {
+    color: #928CEE; /* 紫色 */
+}
+
+
+/* 列表 */
+/* 基本重置，去掉默认的列表样式 */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+header ul
+{
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: 15%;/* 向右移 */
+}
+header ul li
+{
+    position: relative;
+    list-style: none;
+}
+header ul li a
+{
+    
+    position: relative;
+    margin: 0 15px;
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 500;
+    transition: 0.6s;
+}
+header ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* 调整下划线位置 */
+    width: 100%;
+    height: 2px; /* 调整下划线的厚度 */
+    background-color: transparent; /* 初始为透明 */
+    transition: background-color 0.6s, bottom 0.6s;
+}
+
+header ul li a:hover {
+    color: #928CEE; /* 紫色 */
+}
+header ul li a:hover::after {
+    background-color: #928CEE; /* 紫色下划线 */
+    bottom: -5px; /* 使下划线在链接下方 */
+}
+
+/* 下拉菜单 */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none; /* 默认隐藏下拉菜单 */
+    position: absolute; /* 绝对定位 */
+    top: 100%; /* 下拉菜单显示在菜单项下方 */
+    left: 0;
+    background-color: #fff; /* 背景颜色 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 阴影效果 */
+    border-radius: 5px; /* 圆角边框 */
+    z-index: 1000; /* 确保下拉菜单在其他元素之上 */
+    min-width: 200px; /* 设置下拉菜单的最小宽度 */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 12px 16px;
+    color: #333;
+    text-decoration: none;
+    transition: 0.6s;
+}
+
+.dropdown-content a:hover {
+    background-color: #928CEE;
+    color: #fff;
+}
+
+
+/* 页面背景 */
+.banner
+{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url(../imgs/bg.jpg);
+    background-size: cover;
+    z-index: -1; /* 使背景图片在页面之下 */
+}
+/* 标题列表紫色样式 */
+header.sticky .logo,
+header.sticky ul li a
+{
+    color: #000;
+}
+header.sticky .logo:hover,
+header.sticky ul li a:hover
+{
+    color: #928CEE;
+}
+
+
+/* 欢迎文字整体定位 */
+.container {
+    position: absolute; /* 使容器绝对定位 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 居中对齐 */
+    text-align: center;
+    z-index: 1; /* 确保容器在背景图片之上 */
+}
+.container h1
+{
+    font-size: 4em;
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 2px 8px 10px rgba(0, 0, 0, 0.7); /* 阴影效果 */
+}
+.container p
+{
+    font-size: 1.5em;
+    color: #fff;
+    font-weight: 300;
+    margin-top: 20px;
+    text-shadow: 2px 8px 10px rgba(0, 0, 0, 0.7); /* 阴影效果 */
+}
+
+
+/* 按钮样式 */
+/* 设置按钮基础样式 */
+.button {
+    margin-top: 50px;
+    background: hsla(0,0%,100%,.05);
+    border: 2px solid rgba(229, 231, 235, 1); /* 浅灰色边框 */
+    backdrop-filter: blur(10px); /* 玻璃模糊效果 */
+    color: #fff; /* 默认字体颜色 */
+    text-shadow: .1em .1em .2em #000;
+    font-family: 'KaiTi', cursive; /* 楷书字体 */
+    font-size: 1.4em;
+    font-weight: 500; /* 可以根据需要调整字体粗细 */
+    padding: 20px 30px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 模糊效果 */
+    transition: all 0.3s ease; /* 动效过渡 */
+}
+/* 鼠标悬停时的样式 */
+.button:hover {
+    background-color: #fff; /* 悬停时背景变白色 */
+    color: black; /* 字体颜色变黑色 */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* 增强的阴影效果 */
+    transform: scale(1.1); /* 方框放大动效 */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* 字体阴影 */
+    cursor: pointer;
+}
+
+/* 可选：设置按钮的文字对齐方式 */
+.button-container {
+    display: flex;
+    gap: 15px; /* 按钮之间的间隔 */
+    justify-content: center; /* 居中对齐按钮 */
+}
+
+
+/* 下滑箭头 */
+.scroll-down {
+    position: fixed;
+    bottom: 20px; /* 离页面底部 20px */
+    left: 50%; /* 居中 */
+    transform: translateX(-50%); /* 调整位置使其真正居中 */
+    z-index: 1000; /* 确保箭头在其他元素之上 */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.scroll-down.hidden {
+    opacity: 0;
+    visibility: hidden !important;
+}
+
+.scroll-down button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-down button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    transform: scale(1.1);
+}
+
+.scroll-down button:focus {
+    outline: none; /* 移除焦点轮廓 */
+}
