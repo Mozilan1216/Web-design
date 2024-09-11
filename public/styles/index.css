@@ -117,7 +117,10 @@ header ul li a:hover::after {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 阴影效果 */
     border-radius: 5px; /* 圆角边框 */
     z-index: 1000; /* 确保下拉菜单在其他元素之上 */
-    min-width: 200px; /* 设置下拉菜单的最小宽度 */
+    min-width: 140px; /* 设置下拉菜单的最小宽度 */
+    overflow: hidden; /* 确保内容不会溢出边界 */
+    transition: background-color 0.3s; /* 背景色过渡效果 */
+    box-sizing: border-box; /* 确保 padding 和 border 在宽度中 */
 }
 
 .dropdown:hover .dropdown-content {
@@ -125,17 +128,26 @@ header ul li a:hover::after {
 }
 
 .dropdown-content a {
-    display: block;
+    display: flex; /* 使用 Flexbox */
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
     padding: 12px 16px;
     color: #333;
     text-decoration: none;
-    transition: 0.6s;
+    transition: background-color 0.3s; /* 背景色过渡效果 */
+    box-sizing: border-box; /* 包含内边距和边框在宽度和高度中 */
+    background-color: inherit; /* 继承背景色 */
+    /* 修改之后即可覆盖整个行背景色 */
+    margin: 0; /* 移除边距 */
+    border: 0; /* 移除边框 */
 }
 
 .dropdown-content a:hover {
     background-color: #928CEE;
-    color: #fff;
+    color: #fff !important; /* 字体颜色 */
 }
+
+
 
 
 /* 页面背景 */
